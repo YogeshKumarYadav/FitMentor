@@ -26,7 +26,7 @@ class HealthStatCard extends StatelessWidget {
                 Icon(
                   icon,
                   color: Colors.blue[600],
-                  size: 42,
+                  size: 35,
                 ),
                 const SizedBox(width: 12),
                 Column(
@@ -34,6 +34,7 @@ class HealthStatCard extends StatelessWidget {
                     Text(
                       title,
                       style: TextStyle(
+                        fontFamily: 'Inter',
                         fontSize: 20,
                         fontWeight: FontWeight.w500,
                         color: Colors.grey[700],
@@ -43,6 +44,7 @@ class HealthStatCard extends StatelessWidget {
                     Text(
                       value,
                       style: const TextStyle(
+                        fontFamily: 'Inter',
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
                         color: Colors.black,

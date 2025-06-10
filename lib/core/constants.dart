@@ -7,10 +7,10 @@ Color cardColor = const Color(0xFF444654);
 
 final defaultUser = UserProfile(
   id: 'U_00001',
-  name: 'Alex Carter',
-  age: 29,
-  gender: 'Male',
-  height: 175.0,
-  weight: 72.0,
+  name: 'Yogesh',
+  age: 25,
+  gender: "Male",
+  height: 176.0,
+  weight: 78.0,
   medicalConditions: ['None'],
 );

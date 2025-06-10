@@ -1,6 +1,8 @@
 import 'package:fit_mentor/features/widgets/health_score_card.dart';
 import 'package:fit_mentor/features/widgets/welcome_text_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../core/theme/theme_provider.dart';
 import 'widgets/health_stat_card.dart';
 import '../core/services/health_service.dart';
 import '../ml/ml_service.dart';
@@ -17,7 +19,33 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       // backgroundColor: cardColor,
-      appBar: AppBar(title: const Text('Fit Mentor'), centerTitle: true),
+      appBar: AppBar(title: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Row(
+          children: [
+            const Text('Fit Mentor',
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            const Spacer(),
+            Consumer<ThemeProvider>(
+              builder: (context, themeProvider, child) {
+                return Switch(
+                  value: themeProvider.isDarkMode,
+                  onChanged: (value) {
+                    themeProvider.toggleTheme();
+                  },
+                );
+              },
+            ),
+          ],
+        )
+      )
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -32,10 +60,10 @@ class HomeScreen extends StatelessWidget {
             ]),
             Row(children: [
               Expanded(child: HealthStatCard(icon: Icons.favorite, title: "Heart Rate", value: "${healthData["heartRate"]} bpm")),
-              Expanded(child: HealthStatCard(icon: Icons.mood, title: "Stress", value: healthData["stress"])),
+              Expanded(child: HealthStatCard(icon: Icons.mood_rounded, title: "Stress", value: healthData["stress"])),
             ]),
             const SizedBox(height: 60),
-            const Text("Try a 3 min walk to reach your goal", style: TextStyle(fontWeight: FontWeight.w500)),
+            const Text("Try a 3 min walk to reach your goal", style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
             const SizedBox(height: 10),
             LinearProgressIndicator(value: 450 / 600, color: Color(0xFF007BFF)),
             const SizedBox(height: 5),

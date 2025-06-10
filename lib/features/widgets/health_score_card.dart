@@ -31,8 +31,9 @@ class HealthScoreCircle extends StatelessWidget {
           child: Text(
           label,
           style: TextStyle(
+            fontFamily: 'Inter',
             fontSize: 28,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),),
@@ -52,6 +53,7 @@ class HealthScoreCircle extends StatelessWidget {
               child: Text(
                 score.toString(),
                 style: TextStyle(
+                  fontFamily: 'Inter',
                   fontSize: radius * 0.7,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -144,12 +146,11 @@ void main() {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Example Health Score Circle
             HealthScoreCircle(
               score: 76,
-              radius: 60.0, // Slightly smaller radius for the demo
+              radius: 60.0,
               strokeWidth: 8.0,
-              progressColor: const Color(0xFF007BFF), // Custom blue
+              progressColor: const Color(0xFF007BFF),
               backgroundColor: const Color(0xFFE0E0E0),
               label: "Health Score",
             ),

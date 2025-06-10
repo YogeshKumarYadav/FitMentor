@@ -1,23 +1,24 @@
+import 'package:fit_mentor/app/slider.dart';
+import 'package:fit_mentor/core/theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'slider.dart';
+import 'package:provider/provider.dart';
+import '../core/theme/theme_provider.dart';
+
 
 class FitMentor extends StatelessWidget {
-  const FitMentor({super.key});
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialApp(
-      title: "FitMentor",
-      theme: ThemeData(
-        // primarySwatch: Colors.deepPurple,
-        // scaffoldBackgroundColor: Colors.black,
-        textTheme: const TextTheme(
-          // bodyMedium: TextStyle(color: Colors.white),
-        ),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: const SliderWidget(),
+    return Consumer<ThemeProvider>(
+      builder: (context, themeProvider, child) {
+        return MaterialApp(
+          title: 'My App',
+          theme: lightTheme,
+          darkTheme: darkTheme,
+          themeMode: themeProvider.themeMode,
+          debugShowCheckedModeBanner: false,
+          home: const SliderWidget()
+        );
+      },
     );
   }
 }

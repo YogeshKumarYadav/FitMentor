@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../core/constants.dart';
 import '../features/home.dart';
+import '../features/insights.dart';
 import '../features/profile.dart';
 
 class SliderWidget extends StatefulWidget {
@@ -18,10 +19,10 @@ class _SliderWidgetState extends State<SliderWidget> {
         icon: const Icon(Icons.home),
         label: "Home",
     ),
-    // BottomNavigationBarItem(
-    //     icon: const Icon(Icons.insights),
-    //     label: "Insights",
-    // ),
+    BottomNavigationBarItem(
+        icon: const Icon(Icons.insights),
+        label: "Insights",
+    ),
     BottomNavigationBarItem(
         icon: const Icon(Icons.person),
         label: "Profile",
@@ -40,6 +41,7 @@ class _SliderWidgetState extends State<SliderWidget> {
         },
         children: [
           HomeScreen(),
+          InsightsScreen(),
           ProfileScreen(profile: defaultUser),
         ],
       ),
