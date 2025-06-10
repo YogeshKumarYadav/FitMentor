@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants/constant.dart';
-import '../data/models/user_profile.dart';
+import '../core/constants.dart';
 import '../features/home.dart';
 import '../features/profile.dart';
-import '../features/suggestions.dart';
 
 class SliderWidget extends StatefulWidget {
   const SliderWidget({super.key});
@@ -19,17 +17,14 @@ class _SliderWidgetState extends State<SliderWidget> {
     BottomNavigationBarItem(
         icon: const Icon(Icons.home),
         label: "Home",
-        backgroundColor: scaffoldBackgroundColor
     ),
     // BottomNavigationBarItem(
     //     icon: const Icon(Icons.insights),
     //     label: "Insights",
-    //     // backgroundColor: scaffoldBackgroundColor
     // ),
     BottomNavigationBarItem(
         icon: const Icon(Icons.person),
         label: "Profile",
-        backgroundColor: scaffoldBackgroundColor
     ),
   ];
 
@@ -38,9 +33,9 @@ class _SliderWidgetState extends State<SliderWidget> {
     return Scaffold(
       body: PageView(
         controller: pagecontroller,
-        onPageChanged: (newindex) {
+        onPageChanged: (newIndex) {
           setState(() {
-            cur_index = newindex;
+            cur_index = newIndex;
           });
         },
         children: [
@@ -50,7 +45,7 @@ class _SliderWidgetState extends State<SliderWidget> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: cur_index,
-          // fixedColor: Colors.white,
+          fixedColor: Color(0xFF007BFF),
           items: navigation_items,
           onTap: (newIndex) {
             setState(() {
