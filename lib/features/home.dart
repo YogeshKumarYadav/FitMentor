@@ -23,20 +23,18 @@ class HomeScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: Row(
           children: [
-            const Text('Fit Mentor',
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+            Text('Fit Mentor',
+              style: Theme.of(context).textTheme.headlineMedium
             ),
             const Spacer(),
             Consumer<ThemeProvider>(
               builder: (context, themeProvider, child) {
-                return Switch(
-                  value: themeProvider.isDarkMode,
-                  onChanged: (value) {
+                return IconButton(
+                  icon: Icon(themeProvider.isDarkMode
+                      ? Icons.nightlight_round
+                      : Icons.wb_sunny
+                  ),
+                  onPressed: () {
                     themeProvider.toggleTheme();
                   },
                 );

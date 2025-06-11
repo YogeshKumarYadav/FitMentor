@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:math' as math;
+
+import '../../core/theme/theme_provider.dart';
 
 class HealthScoreCircle extends StatelessWidget {
   final int score;
@@ -30,12 +33,7 @@ class HealthScoreCircle extends StatelessWidget {
           width: 100,
           child: Text(
           label,
-          style: TextStyle(
-            fontFamily: 'Inter',
-            fontSize: 28,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
+          style: Theme.of(context).textTheme.titleLarge
         ),),
         const SizedBox(width: 50),
         SizedBox(
@@ -50,14 +48,18 @@ class HealthScoreCircle extends StatelessWidget {
               backgroundColor: backgroundColor,
             ),
             child: Center(
-              child: Text(
-                score.toString(),
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: radius * 0.7,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+              child: Consumer<ThemeProvider>(
+                builder: (context, themeProvider, child) {
+                  return Text(
+                    score.toString(),
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: radius * 0.7,
+                      fontWeight: FontWeight.bold,
+                      color: themeProvider.isDarkMode? Colors.white: Colors.black
+                    ),
+                  );
+                },
               ),
             ),
           ),

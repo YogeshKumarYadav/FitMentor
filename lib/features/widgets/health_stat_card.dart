@@ -33,22 +33,12 @@ class HealthStatCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey[700],
-                      ),
+                      style: Theme.of(context).textTheme.bodyLarge
                     ),
                     const SizedBox(height: 5),
                     Text(
                       value,
-                      style: const TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
+                      style: Theme.of(context).textTheme.headlineSmall
                     ),
                   ],
                 )

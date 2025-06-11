@@ -1,7 +1,8 @@
 import 'package:fit_mentor/app/slider.dart';
-import 'package:fit_mentor/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../core/theme/dark_theme.dart';
+import '../core/theme/light_theme.dart';
 import '../core/theme/theme_provider.dart';
 
 
