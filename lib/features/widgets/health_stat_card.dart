@@ -15,6 +15,7 @@ class HealthStatCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).cardColor,
       margin: const EdgeInsets.all(8),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),

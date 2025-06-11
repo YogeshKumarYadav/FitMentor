@@ -9,6 +9,7 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Theme.of(context).scaffoldBackgroundColor,
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
@@ -17,24 +18,15 @@ class ProfileCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(profile.name,
-              style: const TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+              style: Theme.of(context).textTheme.headlineMedium
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Icon(Icons.calendar_month, color: Colors.blue[600], size: 20),
                 const SizedBox(width: 15),
                 Text("Age: ${profile.age} years",
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
@@ -46,11 +38,7 @@ class ProfileCard extends StatelessWidget {
                     : Icon(Icons.female_rounded, color: Colors.blue[600], size: 20),
                 const SizedBox(width: 15),
                 Text("Gender: ${profile.gender}",
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
@@ -60,11 +48,7 @@ class ProfileCard extends StatelessWidget {
                 Icon(Icons.height_rounded, color: Colors.blue[600], size: 20),
                 const SizedBox(width: 15),
                 Text("Height: ${profile.height} cm",
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                    style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
@@ -74,11 +58,7 @@ class ProfileCard extends StatelessWidget {
                 Icon(Icons.monitor_weight, color: Colors.blue[600], size: 20),
                 const SizedBox(width: 15),
                 Text("Weight: ${profile.weight} kg",
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),
@@ -88,11 +68,7 @@ class ProfileCard extends StatelessWidget {
                 Icon(Icons.health_and_safety, color: Colors.blue[600], size: 20),
                 const SizedBox(width: 15),
                 Text("Medical: ${profile.medicalConditions.join(', ')}",
-                  style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 20,
-                    color: Colors.black,
-                  ),
+                  style: Theme.of(context).textTheme.bodyLarge
                 ),
               ],
             ),

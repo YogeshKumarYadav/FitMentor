@@ -33,7 +33,7 @@ class HealthScoreCircle extends StatelessWidget {
           width: 100,
           child: Text(
           label,
-          style: Theme.of(context).textTheme.titleLarge
+          style: Theme.of(context).textTheme.headlineLarge
         ),),
         const SizedBox(width: 50),
         SizedBox(
@@ -56,7 +56,7 @@ class HealthScoreCircle extends StatelessWidget {
                       fontFamily: 'Inter',
                       fontSize: radius * 0.7,
                       fontWeight: FontWeight.bold,
-                      color: themeProvider.isDarkMode? Colors.white: Colors.black
+                      color: themeProvider.themeMode.name == "dark"? Colors.white: Colors.black
                     ),
                   );
                 },

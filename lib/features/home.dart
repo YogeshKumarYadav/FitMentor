@@ -24,13 +24,13 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           children: [
             Text('Fit Mentor',
-              style: Theme.of(context).textTheme.headlineMedium
+              style: Theme.of(context).textTheme.displaySmall
             ),
             const Spacer(),
             Consumer<ThemeProvider>(
               builder: (context, themeProvider, child) {
                 return IconButton(
-                  icon: Icon(themeProvider.isDarkMode
+                  icon: Icon(themeProvider.themeMode.name == "light"
                       ? Icons.nightlight_round
                       : Icons.wb_sunny
                   ),
@@ -61,11 +61,11 @@ class HomeScreen extends StatelessWidget {
               Expanded(child: HealthStatCard(icon: Icons.mood_rounded, title: "Stress", value: healthData["stress"])),
             ]),
             const SizedBox(height: 60),
-            const Text("Try a 3 min walk to reach your goal", style: TextStyle(fontFamily: 'Inter', fontWeight: FontWeight.w500)),
+            Text("Try a 3 min walk to reach your goal", style: Theme.of(context).textTheme.titleSmall),
             const SizedBox(height: 10),
             LinearProgressIndicator(value: 450 / 600, color: Color(0xFF007BFF)),
             const SizedBox(height: 5),
-            const Text("Today's Goal: 450 / 600 kcal"),
+            Text("Today's Goal: 450 / 600 kcal", style: Theme.of(context).textTheme.titleSmall),
           ],
         ),
       ),

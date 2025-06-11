@@ -21,7 +21,7 @@ class WelcomeText extends StatelessWidget {
         children: <Widget>[
           Flexible(
             child: Text("Hi $name, you're doing great today!",
-              style: Theme.of(context).textTheme.titleLarge
+              style: Theme.of(context).textTheme.displaySmall
             ),
           )
         ],

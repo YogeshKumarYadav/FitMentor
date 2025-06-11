@@ -29,7 +29,12 @@ class InsightsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: Text("Insights", style: Theme.of(context).textTheme.headlineMedium),
+        )
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -38,7 +43,6 @@ class InsightsScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               final suggestion = suggestions[index];
               return Card(
-                color: Colors.deepPurple.shade100,
                 margin: const EdgeInsets.symmetric(vertical: 8.0),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                 child: ListTile(

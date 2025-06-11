@@ -10,9 +10,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: cardColor,
+      backgroundColor: Theme.of(context).canvasColor,
       appBar: AppBar(
-        title: const Text("Your Profile"),
+          title: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            child: Text("Your Profile", style: Theme.of(context).textTheme.headlineMedium),
+          )
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
