@@ -56,7 +56,6 @@ class HealthScoreCircle extends StatelessWidget {
                       fontFamily: 'Inter',
                       fontSize: radius * 0.7,
                       fontWeight: FontWeight.bold,
-                      color: themeProvider.themeMode.name == "dark"? Colors.white: Colors.black
                     ),
                   );
                 },
