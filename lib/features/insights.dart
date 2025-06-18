@@ -1,3 +1,4 @@
+import 'package:fit_mentor/data/repositories/suggestion_repository.dart';
 import 'package:flutter/material.dart';
 
 class InsightsScreen extends StatefulWidget {
@@ -8,39 +9,17 @@ class InsightsScreen extends StatefulWidget {
 }
 
 class _InsightsScreenState extends State<InsightsScreen> {
-  final List<Map<String, String>> _suggestions = [
-    {
-      "title": "Hydration Reminder",
-      "description": "You're under-hydrated today. Try drinking at least 2.5 liters of water."
-    },
-    {
-      "title": "Sleep Improvement",
-      "description": "Your deep sleep duration was low. Consider avoiding screens 1 hour before bed."
-    },
-    {
-      "title": "Cardio Exercise",
-      "description": "Add 30 minutes of moderate-intensity cardio to your routine."
-    },
-    {
-      "title": "Mindfulness Break",
-      "description": "Your stress levels are high. Try a 10-minute meditation session."
-    },
-    {
-      "title": "Nutrition Tip",
-      "description": "You're low on protein intake. Include more eggs, lentils, or lean meat in meals."
-    },
-  ];
 
   void _removeSuggestion(BuildContext context, int index) {
     // Store the item and its original index so it can be restored if 'Undo' is pressed.
-    final dismissedItem = _suggestions[index];
+    final dismissedItem = suggestions[index];
     final dismissedIndex = index;
 
     // Update the UI by removing the item from the list.
     // setState notifies Flutter that the internal state has changed,
     // prompting a rebuild of the widget tree.
     setState(() {
-      _suggestions.removeAt(index);
+      suggestions.removeAt(index);
     });
 
     // Display a SnackBar at the bottom of the screen to confirm dismissal
@@ -53,7 +32,7 @@ class _InsightsScreenState extends State<InsightsScreen> {
           onPressed: () {
             // If 'Undo' is pressed, re-insert the item at its original position.
             setState(() {
-              _suggestions.insert(dismissedIndex, dismissedItem);
+              suggestions.insert(dismissedIndex, dismissedItem);
             });
           },
         ),
@@ -74,9 +53,9 @@ class _InsightsScreenState extends State<InsightsScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView.builder(
-            itemCount: _suggestions.length,
+            itemCount: suggestions.length,
             itemBuilder: (context, index) {
-              final suggestion = _suggestions[index];
+              final suggestion = suggestions[index];
               return Dismissible(
                 // A unique key is required for Dismissible to correctly identify
                 // and manage the lifecycle of the widget being dismissed.
